@@ -7,7 +7,7 @@ const passwordAuth = (req, res, next) => {
     // Check if the provided password matches the expected password
     const expectedPassword = process.env.ADMIN_PASSWORD || "admin"; 
     if (providedPassword !== expectedPassword) {
-        return res.status(403).json({ success: false, message: 'Access denied. Incorrect password.' });
+        return res.status(401).json({ success: false, message: 'Access denied. use password.' });
     }
 
     next();
