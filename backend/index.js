@@ -25,11 +25,19 @@ app.use(express.json());
 app.use(morgan("dev"));
 // Making routes
 
+app.get('/', (req, res) => {
+    res.json('hello')
+})
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/blog", blogRouter);
 app.use((req, res) => {
     res.status(404).send('Route Not Found');
 });
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
 
 const port = process.env.PORT || 8080; 
 
