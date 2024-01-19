@@ -26,7 +26,7 @@ app.use(morgan("dev"));
 // Making routes
 
 app.get('/', (req, res) => {
-    res.json('hello')
+    res.json('hello backend live')
 })
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/blog", blogRouter);
