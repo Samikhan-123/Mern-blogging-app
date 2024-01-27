@@ -45,7 +45,7 @@ export const registerUser = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "error in Register",
-            error
+            error:error.message
         })
     }
 };
@@ -82,13 +82,13 @@ export const loginUser = async (req, res) => {
         }
 
         // if everything is fine then login
-        const jwtSecretKey = process.env.JWT_SECRET_KEY || "defaultSecretKey";
-        const token = jwt.sign({ userId: user._id, email: user.email }, jwtSecretKey);
+        const token = jwt.sign({ userId: user._id, name: user.username, email: user.email }, 'yourSecretKey') ;
+        console.log('Created Token:', token);
         return res.status(200).json({
             success: true,
             message: "Successfully Logged In",
             user,
-            token,
+            token
         });
     } catch (error) {
         console.error(error);
@@ -124,6 +124,7 @@ export const getAllUsers = async (req, res) => {
     }
 
 };
+
 
 
 

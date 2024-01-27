@@ -4,7 +4,7 @@ const storedToken = localStorage.getItem('token');
 const authSlice = createSlice({
     name: "auth",
     initialState: {
-        isLogin: !!storedToken, 
+        isLogin: storedToken, 
         token: storedToken || null,
 
     },

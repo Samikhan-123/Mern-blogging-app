@@ -1,24 +1,31 @@
-// verifyToken.js
+
 import jwt from 'jsonwebtoken';
-
-
-
 const verifyToken = (req, res, next) => {
-    const token = req.header('Authorization');
+    const token = req.headers.authorization; //  the token is sent in the Authorization header
 
     if (!token) {
-        return res.status(401).json({ success: false, message: 'Access denied. Token is missing.' });
+        return res.status(401).json({
+            success: false,
+            message: 'Unauthorized: please login',
+        });
     }
 
-    try {
-        const secretJWTAuthKey = process.env.JWT_SECRET_KEY || 'defaultSecretKey';
-        const decoded = jwt.verify(token, secretJWTAuthKey);
-        req.user = decoded; // Attach the decoded user information to the request object
-        next(); // Continue to the next middleware or route handler
-    } catch (error) {
-        console.error(error);
-        return res.status(401).json({ success: false, message: 'Invalid token.' });
-    }
+    // Verify the token
+    jwt.verify(token.split(' ')[1], 'yourSecretKey', (err, decoded) => {
+        if (err) {
+            return res.status(401).json({
+                success: false,
+                message: 'Unauthorized: Invalid token',
+                token: token,
+                error: err
+            });
+        }
+
+        // Attach the decoded user information to the request for further use
+        console.log('Decoded User:', decoded);
+        req.user = decoded;
+        next();
+    });
 };
 
 export default verifyToken;
