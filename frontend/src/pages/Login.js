@@ -39,7 +39,7 @@ const Login = () => {
                 console.log('Login Response:', response.data);
 
                 const userData = response.data.user;
-                const token = response.data.token; // Get the token from the response
+                const token = response.data.token; // Get the token from the server
 
                 if (userData && userData._id && token) {
                     localStorage.setItem("userID", userData._id);
@@ -57,6 +57,7 @@ const Login = () => {
                 }
             } catch (error) {
                 console.error("Login error:", error);
+                console.log(error)
                 toast.error(error.response.data.message);
             } finally {
                 setSubmitting(false);
