@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BlogCard from '../components/BlogCard';
+import BlogCard from '../components/BlogCard.js';
 
 const UserBlog = () => {
     const [blogs, setBlogs] = useState([]);
 
     const getAllBlogs = async () => {
         try {
-            const response = await axios.get("/api/v1/blog/all-blogs");
-            if (response.data && response.data.blogs) {
-                setBlogs(response.data.blogs);
-                console.log(response.data)
+            const id = localStorage.getItem('userID');
+            const { data } = await axios.get(`/api/v1/blog/user-blog/${id}`);
+            if (data && data.userBlogs) {
+                setBlogs(data.userBlogs);
+                console.log('userBlog', data);
             }
         } catch (error) {
-            console.error(error);
+            console.error('userBlog error', error);
         }
     };
 
@@ -23,20 +24,22 @@ const UserBlog = () => {
 
     return (
         <div>
+            <BlogCard />
+
             {blogs && blogs.length > 0 ? (
                 blogs.map((blog) => (
                     <BlogCard
-                        id={blog._id} // each blog has a unique ID
-                        isUser={true}
+                        key={blog._id}
+                        id={blog._id}
                         username={blog.user?.username}
-                        time={blog.createdAt}
+                        time={new Date(blog.createdAt).toLocaleString()}
                         image={blog.image}
                         title={blog.title}
                         description={blog.description}
                     />
                 ))
             ) : (
-                <p className='text-center'>blogs not found</p>
+                <h4 className='text-center'>Blogs not found, create a blog</h4>
             )}
         </div>
     );

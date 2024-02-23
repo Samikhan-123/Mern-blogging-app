@@ -36,9 +36,10 @@ const Login = () => {
                     email: values.email,
                     password: values.password
                 });
+                console.log('Login Response:', response.data);
+
                 const userData = response.data.user;
                 const token = response.data.token; // Get the token from the response
-                console.log('Login Response:', response.data);
 
                 if (userData && userData._id && token) {
                     localStorage.setItem("userID", userData._id);
@@ -47,7 +48,6 @@ const Login = () => {
 
                     localStorage.setItem("token", token);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
                     
                     dispatch(authActions.login());
                     
@@ -63,8 +63,7 @@ const Login = () => {
             }
         },
     });
-
-
+   
 
     return (
         <div>

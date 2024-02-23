@@ -1,5 +1,4 @@
 
-// import allData from "../controller/userController"
 
 import { createBlog, deleteBlog, getAllBlogs, getOneBlog, updateBlog, userBlog } from "../controller/blogController.js";
 import { Router } from "express";
@@ -23,7 +22,7 @@ blogRouter.put("/update-blog/:id", verifyToken, updateBlog);
 blogRouter.delete("/delete-blog/:id", verifyToken, deleteBlog);
 
 // Get user blog
-// blogRouter.get("/user-blog/:id" ,userBlog)
+blogRouter.get("/user-blog/:id", verifyToken ,userBlog)
 
 
 export default blogRouter;

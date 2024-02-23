@@ -145,7 +145,7 @@ const Register = () => {
 
 
                                                 <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <button type="submit" className="btn btn-primary btn-lg" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>
+                                                    <button type="submit" className="btn btn-primary btn-lg" disabled={formik.isSubmitting }>
                                                         Register
                                                     </button>
                                                 </div>

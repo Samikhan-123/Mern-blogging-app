@@ -6,7 +6,7 @@ const verifyToken = (req, res, next) => {
     if (!token) {
         return res.status(401).json({
             success: false,
-            message: 'Unauthorized: please login',
+            message: 'Unauthorized: no token provided',
         });
     }
 
@@ -17,11 +17,10 @@ const verifyToken = (req, res, next) => {
                 success: false,
                 message: 'Unauthorized: Invalid token',
                 token: token,
-                error: err
+                error: err,
             });
         }
 
-        // Attach the decoded user information to the request for further use
         console.log('Decoded User:', decoded);
         req.user = decoded;
         next();

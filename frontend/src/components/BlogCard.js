@@ -89,7 +89,7 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
                 </p>
                 <Link className="nav-link" to={`/read-blog/${id}`}>
                     <button class="btn btn-primary fw-bold " style="transition: all 0.5s;">
-                        read more...
+                        read more
                     </button>
                 </Link>
                

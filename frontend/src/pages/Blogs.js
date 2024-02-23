@@ -26,17 +26,18 @@ const Blogs = () => {
     }, []);
 
     return (
-        <div style={{ backgroundColor:'#e6ecf1'}}>
+        <div style={{ backgroundColor: '#e6ecf1' }}>
+            <h2 className='text-center p-3'> The Blogs </h2>
             {loading ? (
-                <p className='text-center'>Please wait, loading data...</p>
+                <h4 className='text-center'>Please wait, loading data...</h4>
             ) : error ? (
-                <p className='text-center'>{error}</p>
+                <h4 className='text-center'>{error}</h4>
                 ) : blogs.length === 0 ? (
-                    <p className='text-center'>blogs not found.</p>
+                    <h4 className='text-center'>blogs not found.</h4>
                 ) : (
                 blogs.map((blog) => (
                     <BlogCard
-                        isUser={localStorage.getItem("userID") === (blog.user?._id || null)}
+                        // isUser={localStorage.getItem("userID") === (blog.user._id || null)}
                         key={blog.id}
                         id={blog._id}
                         username={blog.user?.username || "Unknown User"}

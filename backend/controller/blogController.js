@@ -141,13 +141,7 @@ export const deleteBlog = async (req, res) => {
         const id = req.params.id;
         console.log('Blog ID:', id);
 
-        // Check if blog exists
-        // const blog = await blogModel.findById(id);
-
-        // Save user ID before deleting the blog
-        // const userId = blog.user;
-
-        // Delete blog
+        
         const deletedBlog = await blogModel.findByIdAndDelete(id).populate("user");
         if (!deletedBlog) {
             return res.status(404).json({
@@ -184,8 +178,8 @@ export const userBlog = async (req, res) => {
     try {
         const id = req.params.id;
         console.log(id)
-        const user = await userModel.findById(id).populate("blogs")
-        if (!user) {
+        const userBlogs = await userModel.findById(id).populate("blogs")
+        if (!userBlogs) {
             return res.status(404).json({
                 success: false,
                 message: "user Not Found"
@@ -195,7 +189,7 @@ export const userBlog = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: "user Successfully Get",
-            user
+            userBlogs,
         })
     } catch (error) {
         console.error(error)

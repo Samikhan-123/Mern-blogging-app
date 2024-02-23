@@ -4,16 +4,11 @@ import colors from "colors";
 import cors from "cors";
 import dotenv from "dotenv";
 import dbConnection from "./config/dbConnection.js";
-// Import the cookie-parser middleware
-import cookieParser from 'cookie-parser';
-
-
 
 // user Routes
 import userRouter from "./routes/userRoutes.js";
 // blog Routes
 import blogRouter from "./routes/blogRoutes.js";
-// import authenticateToken from "./middlewares/JsonWebAuth.js";
 // Env config
 dotenv.config();
 // DB connection
@@ -26,8 +21,7 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(morgan("dev"));
-// Use cookie-parser middleware
-app.use(cookieParser());
+
 // Making routes
 
 app.get('/', (req, res) => {
