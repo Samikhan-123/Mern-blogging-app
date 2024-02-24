@@ -11,7 +11,7 @@ const ReadBlog = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await axios.get(`/api/v1/blog/one-blog/${id}`);
+                const res = await axios.get(`https://mern-blogging-app.vercel.app/api/v1/blog/one-blog/${id}`);
                 if (res.data) {
                     setBlog(res.data.blog);
                 }
