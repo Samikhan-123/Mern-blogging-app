@@ -27,7 +27,7 @@ const Header = () => {
 
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg position-fixed z-1 w-100 ${isLogin ? 'bg-dark position-sticky top-0' : 'bg-light'}`}>
+            <nav className={`navbar navbar-expand-lg w-100 bg-light`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
 
@@ -53,21 +53,21 @@ const Header = () => {
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ">
+                        <ul style={{position:'absolute',left:'35%'}} className="navbar-nav">
                             {isLogin && (
                                 <>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link text-white" to="/blogs" activeClassName="active">
+                                        <NavLink className="nav-link" to="/blogs" activeClassName="active">
                                             Blogs
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link text-white" to="/my-blogs">
+                                        <NavLink className="nav-link" to="/my-blogs">
                                             My Blogs
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link text-white" to="/create-blog">
+                                        <NavLink className="nav-link" to="/create-blog">
                                             Create Blogs
                                         </NavLink>
                                     </li>
@@ -92,7 +92,7 @@ const Header = () => {
                                 )}
                                 {isLogin && (
                                     <li className="nav-item">
-                                        <button onClick={handleLogout} className="nav-link text-white">
+                                        <button onClick={handleLogout} className="nav-link">
                                             Logout
                                         </button>
                                     </li>

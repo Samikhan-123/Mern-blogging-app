@@ -33,7 +33,7 @@ const ReadBlog = () => {
 
     return (
         <div className="fluid-container mt-5 mb-5">
-            <h1 style={{color:'red'}} className='text-center '> Blog</h1>
+            <h2 className='text-center '> Here, You Can Read Full Blog</h2>
             <div className="card d-flex col-sm-12 col-md-10" style={{ margin: 'auto', marginTop: '2rem', boxShadow: '5px 5px 10px #ccc', backgroundColor: '#e6fbf1' }}>
                 <h5 className="card-title mx-3 mt-3"><FaUser className='m-1' />{user.username}</h5>
                 <p className="card-text text-muted p-2">Posted at {new Date(createdAt).toLocaleString()}</p>

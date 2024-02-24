@@ -27,21 +27,21 @@ const Blogs = () => {
 
     return (
         <div style={{ backgroundColor: '#e6ecf1' }}>
-            <h2 className='text-center p-3'> The Blogs </h2>
+            <h2 className='text-center p-4 fw-bold'> The Blogs </h2>
             {loading ? (
                 <h4 className='text-center'>Please wait, loading data...</h4>
             ) : error ? (
                 <h4 className='text-center'>{error}</h4>
-                ) : blogs.length === 0 ? (
-                    <h4 className='text-center'>blogs not found.</h4>
-                ) : (
+            ) : blogs.length === 0 ? (
+                <h4 className='text-center'>blogs not found.</h4>
+            ) : (
                 blogs.map((blog) => (
                     <BlogCard
-                        // isUser={localStorage.getItem("userID") === (blog.user._id || null)}
+                        isUser={localStorage.getItem("userID") === (blog.user._id || null)}
                         key={blog.id}
                         id={blog._id}
                         username={blog.user?.username || "Unknown User"}
-                        time= {new Date(blog.createdAt).toLocaleString()}
+                        time={new Date(blog.createdAt).toLocaleString()}
                         image={blog.image}
                         title={blog.title}
                         description={blog.description}
