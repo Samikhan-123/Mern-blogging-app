@@ -27,7 +27,7 @@ const Header = () => {
 
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg position-fixed z-1 w-100 bg-light`}>
+            <nav style={{color:'black'}} className={`navbar navbar-expand-lg position-fixed z-1 w-100 bg-light`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
 
