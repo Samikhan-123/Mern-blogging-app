@@ -18,8 +18,14 @@ const app = express();
 
 // Using middlewares
 
+const allowedOrigins = [
+    "https://mern-frontend-blond.vercel.app",
+    // Add more URLs as needed
+    "http://localhost:5173",
+];
+
 const corsOptions = {
-    origin: "https://mern-frontend-blond.vercel.app",
+    origin: allowedOrigins,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     optionsSuccessStatus: 200,

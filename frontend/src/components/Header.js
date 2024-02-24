@@ -27,7 +27,7 @@ const Header = () => {
 
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg position-fixed z-1 w-100 ${isLogin ? 'bg-dark position-sticky top-0' : 'bg-light'}`}>
+            <nav className={`navbar navbar-expand-lg position-fixed z-1 w-100 bg-light`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
 
@@ -39,7 +39,7 @@ const Header = () => {
                     </Link>
 
                     <button
-                        style={{ color: 'white' }}
+                        // style={{ color: 'white' }}
                         className="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
@@ -48,7 +48,7 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span style={{ color: 'white',backgroundColor:'white' }}
+                        <span 
                             className="navbar-toggler-icon"></span>
                     </button>
 

@@ -57,8 +57,22 @@ const Login = () => {
                 }
             } catch (error) {
                 console.error("Login error:", error);
-                console.log(error)
-                toast.error(error.response.data.message);
+                console.log(error);
+
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    console.log(error.message)
+                    toast.error(error.response.data.message);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    console.error("No response received");
+                    toast.error("No response received");
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.error("Error setting up the request:", error.message);
+                    toast.error("Error setting up the request");
+                }
             } finally {
                 setSubmitting(false);
             }
