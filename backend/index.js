@@ -18,7 +18,14 @@ const app = express();
 
 // Using middlewares
 
-app.use(cors());
+const corsOptions = {
+    origin: "https://mern-frontend-blond.vercel.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
