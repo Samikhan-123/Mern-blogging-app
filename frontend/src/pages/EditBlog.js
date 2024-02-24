@@ -55,7 +55,7 @@ const EditBlog = () => {
     // get blog details
     const getBlogDetail = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/blog/one-blog/${id}`);
+            const { data } = await axios.get(`https://mern-blogging-app.vercel.app/api/v1/blog/one-blog/${id}`);
             if (data?.blog) {
                 setBlog(data.blog);
                 formik.setValues({

@@ -17,7 +17,7 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
 
     const fetchBlogs = async () => {
         try {
-            const response = await axios.get("/api/v1/blog/all-blogs");
+            const response = await axios.get("https://mern-blogging-app.vercel.app/api/v1/blog/all-blogs");
             if (response?.data) {
                 // Update the state with the latest data
                 setAllBlogs(response.data);
