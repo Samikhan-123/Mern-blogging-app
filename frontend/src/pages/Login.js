@@ -35,6 +35,11 @@ const Login = () => {
                 const response = await axios.post("/api/v1/user/login", {
                     email: values.email,
                     password: values.password
+                }, {
+                    withCredentials: true,  // Enable sending credentials (cookies)
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                 });
                 console.log('Login Response:', response.data);
 
