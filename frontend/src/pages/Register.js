@@ -33,7 +33,7 @@ const Register = () => {
         validationSchema: validationSchema,
         onSubmit: async (values, { setSubmitting }) => {
             // Handle form submission here
-            console.log('Form values:', values);
+            // console.log('Form values:', values);
             try {
                 const { data } = await axios.post('https://mern-blogging-app.vercel.app/api/v1/user/register', {
                     username: values.name,
@@ -42,8 +42,7 @@ const Register = () => {
                 });
 
                 if (data) {
-                    // Registration successful
-                    // alert('User successfully registered');
+                 
                     navigate('/login');
                     toast.success('Successfully Registered');
 

@@ -64,7 +64,7 @@ const EditBlog = () => {
                     image: data.blog.image,
                 });
             } else {
-                console.log("Blog not found");
+                console.error("Blog not found");
                 toast.info("Blog not found")
             }
 

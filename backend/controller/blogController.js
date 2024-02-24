@@ -139,7 +139,7 @@ export const updateBlog = async (req, res) => {
 export const deleteBlog = async (req, res) => {
     try {
         const id = req.params.id;
-        console.log('Blog ID:', id);
+        // console.log('Blog ID:', id);
 
         
         const deletedBlog = await blogModel.findByIdAndDelete(id).populate("user");

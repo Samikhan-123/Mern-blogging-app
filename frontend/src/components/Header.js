@@ -24,7 +24,7 @@ const Header = () => {
             }
         }
     };
-
+   
     return (
         <div>
             <nav className={`navbar navbar-expand-lg w-100 bg-light`}>
@@ -53,7 +53,7 @@ const Header = () => {
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul style={{position:'absolute',left:'35%'}} className="navbar-nav">
+                        <ul style={{position:'absolute',left:'40%'}} className="navbar-nav">
                             {isLogin && (
                                 <>
                                     <li className="nav-item">

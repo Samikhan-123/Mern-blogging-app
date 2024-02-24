@@ -1,14 +1,15 @@
-import React from 'react'
-import Header from './components/Header';
-import { Route, Routes } from 'react-router-dom';
-import Blogs from './pages/Blogs';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import UserBlog from './pages/UserBlogs';
-import CreateBlog from './pages/CreateBlog';
-import EditBlog from './pages/EditBlog';
-import ReadBlog from './pages/ReadBlog';
-import LandingPage from './pages/LandingPage';
+import "./app.css"; 
+import React from "react";
+import Header from "./components/Header";
+import { Route, Routes } from "react-router-dom";
+import Blogs from "./pages/Blogs";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import UserBlog from "./pages/UserBlogs";
+import CreateBlog from "./pages/CreateBlog";
+import EditBlog from "./pages/EditBlog";
+import ReadBlog from "./pages/ReadBlog";
+import LandingPage from "./pages/LandingPage";
 const App = () => {
   return (
     <>
@@ -25,6 +26,6 @@ const App = () => {
       </Routes>
     </>
   );
-}
+};
 
-export {App}
+export { App };

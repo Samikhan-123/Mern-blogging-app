@@ -11,7 +11,6 @@ const UserBlog = (props) => {
             const { data } = await axios.get(`https://mern-blogging-app.vercel.app/api/v1/blog/user-blog/${id}`);
             if (data && data.userBlogs?.blogs) {
                 setBlogs(data.userBlogs.blogs);
-                console.log('userBlog', data);
             }
         } catch (error) {
             console.error('userBlog error', error);

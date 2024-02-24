@@ -44,14 +44,14 @@ const Login = () => {
                 if (userData && userData._id && token) {
                     localStorage.setItem("userID", userData._id);
 
-                    console.log('Received Token:', token);
+                    // console.log('Received Token:', token);
 
                     localStorage.setItem("token", token);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                     
                     dispatch(authActions.login());
                     
-                    console.log('Form values:', values);
+                    // console.log('Form values:', values);
                     navigate('/blogs');
                     toast.success("Successfully Login");
                 }
@@ -60,8 +60,7 @@ const Login = () => {
                 console.log(error);
 
                 if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
+             
                     console.log(error.message)
                     toast.error(error.response.data.message);
                 } else if (error.request) {
