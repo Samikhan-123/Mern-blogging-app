@@ -51,7 +51,7 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
     }
 
     return (
-        <div className="card d-flex mb-4 col-md-6 col-sm-12" style={{ margin: 'auto', backgroundColor:'#e6fbf1', boxShadow: '5px 5px 10px #ccc' }}>
+        <div className="card d-flex mb-4 col-md-6 col-sm-10" style={{ margin: 'auto',height:'70%', backgroundColor:'#e6fbf1', boxShadow: '5px 5px 10px #ccc' }}>
             {isUser && (
                 <div className="d-flex justify-content-end align-items-center m-2">
                     <button className="btn btn-primary mx-2" onClick={handleEdit}>

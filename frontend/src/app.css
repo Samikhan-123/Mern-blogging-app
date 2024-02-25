@@ -1,5 +1,24 @@
 .active {
   color: black !important;
-  border-bottom: 1px solid teal;
+  /* border-bottom: 1px solid teal; */
   font-weight: 700;
+
+}
+body{
+    background: #D7E4C0;
+    padding-top: 55px;
+}
+.navbar {
+  background-color: #fff;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.5s ease;
+}
+.create-blogs:hover{
+    background-color: transparent !important;
 }

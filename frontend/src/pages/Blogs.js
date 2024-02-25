@@ -24,9 +24,10 @@ const Blogs = () => {
     useEffect(() => {
         getAllBlogs();
     }, []);
+    
 
     return (
-        <div style={{ backgroundColor: '#e6ecf1' }}>
+        <div>
             <h2 className='text-center p-4 fw-bold'> The Blogs </h2>
             {loading ? (
                 <h4 className='text-center'>Please wait, loading data...</h4>
