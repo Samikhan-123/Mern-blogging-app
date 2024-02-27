@@ -67,7 +67,7 @@ export const getOneBlog = async (req, res) => {
 }
 
 
-// Put | one blog
+// Create | one blog
 export const createBlog = async (req, res) => {
     try {
         const { title, description, image, user } = req.body

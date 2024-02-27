@@ -7,6 +7,10 @@ import { authActions } from '../redux/store';
 import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+
+
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
@@ -81,7 +85,7 @@ const Login = () => {
 
     return (
         <div>
-            <section className="vh-125" style={{ backgroundColor: '#262626' }}>
+            <section className="vh-125" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col col-xl-10">
@@ -89,7 +93,7 @@ const Login = () => {
                                 <div className="row g-0">
                                     <div className="col-md-6 col-lg-5 d-none d-md-block">
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img2.webp"
+                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
                                             alt="login form"
                                             className="img-fluid"
                                             style={{ borderRadius: '1rem 0 0 1rem' }}
@@ -149,9 +153,25 @@ const Login = () => {
                                                     </div>
                                                 </div>
                                                 <div className="pt-1 mb-4">
-                                                    <button type="submit" className="btn btn-primary btn-lg" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>
+                                                    <button type="submit" className="btn btn-primary btn-lg d-flex w-100 justify-content-center mb-2" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>
                                                         Login
                                                     </button>
+                                                    {/* //google authentication for redirect login */}
+                                                    <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
+                                                        <GoogleLogin
+                                                            onSuccess={credentialResponse => {
+                                                                const decoded = jwtDecode(credentialResponse.credential);
+
+                                                                console.log(decoded);
+                                                            }}
+                                                            onError={() => {
+                                                                console.error('Login Failed');
+                                                            }}
+                                                            redirectUri="http://localhost:5173/blogs"
+
+                                                        />
+                                                    </GoogleOAuthProvider>
+
                                                 </div>
                                                 <Link to="#!" className="small text-muted">
                                                     Forgot password?

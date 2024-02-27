@@ -16,7 +16,7 @@ dbConnection();
 // Making express server
 const app = express(); 
 
-// Using middlewares
+// Using middlewares 
 
 const allowedOrigins = [
     "https://mern-frontend-blond.vercel.app",

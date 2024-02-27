@@ -26,7 +26,7 @@ const ReadBlog = () => {
     }, [id]); // Include id as a dependency to trigger the effect when it changes
 
     if (!blog) {
-        return <div>Loading...</div>;
+        return <div className='text-center'>Loading...</div>;
     }
 
     const { image, title, description, user, createdAt } = blog;

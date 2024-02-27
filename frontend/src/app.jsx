@@ -10,6 +10,7 @@ import CreateBlog from "./pages/CreateBlog";
 import EditBlog from "./pages/EditBlog";
 import ReadBlog from "./pages/ReadBlog";
 import LandingPage from "./pages/LandingPage";
+
 const App = () => {
   return (
     <>

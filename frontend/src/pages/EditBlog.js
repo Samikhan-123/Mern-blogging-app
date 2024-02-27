@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 const EditBlog = () => {
     const [blog, setBlog] = useState({});
     const { id } = useParams();
-    console.log("params:",id); // Log the entire params object
+    // console.log("params:",id); // Log the entire params object
 
     const navigate = useNavigate();
 
@@ -73,7 +73,7 @@ const EditBlog = () => {
             toast.error(error.response.data.message);
         }
     };
-    console.log('blog',blog)
+    // console.log('blog',blog)
 
     useEffect(() => {
         getBlogDetail();

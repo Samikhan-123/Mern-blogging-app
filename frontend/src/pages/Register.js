@@ -4,10 +4,12 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
+import { jwtDecode } from "jwt-decode";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
 const Register = () => {
     const [showPassword, setShowPassword] = React.useState(false);
-    
+
     const togglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
@@ -42,7 +44,7 @@ const Register = () => {
                 });
 
                 if (data) {
-                 
+
                     navigate('/login');
                     toast.success('Successfully Registered');
 
@@ -53,7 +55,7 @@ const Register = () => {
             } catch (error) {
                 console.log(error);
                 // Handle other errors, if needed
-                toast.error(error.response.data.message); 
+                toast.error(error.response.data.message);
             } finally {
                 setSubmitting(false);
             }
@@ -62,7 +64,7 @@ const Register = () => {
 
     return (
         <div>
-            <section className="vh-125" style={{ backgroundColor: '#262626' }}>
+            <section className="vh-125" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col col-xl-10">
@@ -143,10 +145,25 @@ const Register = () => {
                                                 </div>
 
 
-                                                <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <button type="submit" className="btn btn-primary btn-lg" disabled={formik.isSubmitting }>
+                                                <div className="pt-1 mb-4 justify-content-center">
+                                                    <button type="submit" className="btn btn-primary btn-lg d-flex w-100 justify-content-center mb-4" disabled={formik.isSubmitting}>
                                                         Register
                                                     </button>
+                                                    {/* //google authentication for redirect login */}
+                                                    <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
+                                                        <GoogleLogin
+                                                            onSuccess={credentialResponse => {
+                                                                toast.success('Successfully Login')
+                                                                const decoded = jwtDecode(credentialResponse.credential);
+                                                                console.log(decoded);
+                                                            }}
+                                                            onError={() => {
+                                                                console.error('Login Failed');
+                                                            }}
+                                                        />
+                                                      
+                                                    </GoogleOAuthProvider>
+
                                                 </div>
 
                                                 <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>
@@ -160,7 +177,7 @@ const Register = () => {
                                     </div>
                                     <div className="col-md-6 col-lg-5 d-none d-md-block">
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img2.webp"
+                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
                                             className="img-fluid"
                                             alt="registration form"
                                         />
