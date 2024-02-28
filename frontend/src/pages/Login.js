@@ -156,9 +156,8 @@ const Login = () => {
                                                     <button type="submit" className="btn btn-primary btn-lg d-flex w-100 justify-content-center mb-2" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>
                                                         Login
                                                     </button>
-                                                    <p className='text-center'>or</p>
                                                     {/* //google authentication for redirect login */}
-                                                    <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
+                                                    {/* <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
                                                         <GoogleLogin
                                                             onSuccess={credentialResponse => {
                                                                 const decoded = jwtDecode(credentialResponse.credential);
@@ -170,7 +169,7 @@ const Login = () => {
                                                             }}
 
                                                         />
-                                                    </GoogleOAuthProvider>
+                                                    </GoogleOAuthProvider> */}
 
                                                 </div>
                                                 <Link to="#!" className="small text-muted">

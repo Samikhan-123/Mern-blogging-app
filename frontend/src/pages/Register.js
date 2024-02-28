@@ -4,10 +4,8 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { useDispatch } from 'react-redux';
-import { authActions } from '../redux/store';
 
 const Register = () => {
     const [showPassword, setShowPassword] = React.useState(false);
@@ -37,6 +35,7 @@ const Register = () => {
         validationSchema: validationSchema,
         onSubmit: async (values, { setSubmitting }) => {
             // Handle form submission here
+            // console.log('Form values:', values);
             try {
                 const { data } = await axios.post('https://mern-blogging-app.vercel.app/api/v1/user/register', {
                     username: values.name,
@@ -63,29 +62,6 @@ const Register = () => {
         },
     });
 
-    const handleGoogleLogin = async (credentialResponse) => {
-        try {
-            const idToken = credentialResponse.credential;
-            const response = await axios.post("https://mern-blogging-app.vercel.app/api/v1/user/auth/google", { idToken });
-
-            if (response.data.success) {
-                const { token, user } = response.data;
-
-                localStorage.setItem("userID", user._id);
-                localStorage.setItem("token", token);
-                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-                useDispatch(authActions.login());
-                navigate('/blogs');
-                toast.success("Successfully Login");
-            } else {
-                toast.error(response.data.message);
-            }
-        } catch (error) {
-            console.error("Google login error:", error);
-            toast.error("Failed to authenticate with Google");
-        }
-    };
     return (
         <div>
             <section className="vh-125" style={{ backgroundColor: '#f8f9fa' }}>
@@ -173,17 +149,19 @@ const Register = () => {
                                                     <button type="submit" className="btn btn-primary btn-lg d-flex w-100 justify-content-center mb-4" disabled={formik.isSubmitting}>
                                                         Register
                                                     </button>
-                                                    <p className='text-center'>or</p>
                                                     {/* //google authentication for redirect login */}
-                                                    <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
+                                                    {/* <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
                                                         <GoogleLogin
-                                                            onSuccess={handleGoogleLogin}
-
+                                                            onSuccess={credentialResponse => {
+                                                                toast.success('Successfully Login')
+                                                                const decoded = jwtDecode(credentialResponse.credential);
+                                                                console.log(decoded);
+                                                            }}
                                                             onError={() => {
                                                                 console.error('Login Failed');
                                                             }}
                                                         />
-                                                    </GoogleOAuthProvider>
+                                                    </GoogleOAuthProvider> */}
 
                                                 </div>
 
