@@ -36,11 +36,11 @@ const Login = () => {
 
         onSubmit: async (values, { setSubmitting }) => {
             try {
-                const response = await axios.post("https://mern-blogging-app.vercel.app/api/v1/user/login", {
+                const response = await axios.post("/api/v1/user/login", {
                     email: values.email,
                     password: values.password
                 });
-                console.log('Login Response:', response.data);
+                // console.log('Login Response:', response.data);
 
                 const userData = response.data.user;
                 const token = response.data.token; // Get the token from the server
@@ -156,6 +156,7 @@ const Login = () => {
                                                     <button type="submit" className="btn btn-primary btn-lg d-flex w-100 justify-content-center mb-2" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>
                                                         Login
                                                     </button>
+                                                    <p className='text-center'>or</p>
                                                     {/* //google authentication for redirect login */}
                                                     <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
                                                         <GoogleLogin
@@ -167,7 +168,6 @@ const Login = () => {
                                                             onError={() => {
                                                                 console.error('Login Failed');
                                                             }}
-                                                            redirectUri="http://localhost:5173/blogs"
 
                                                         />
                                                     </GoogleOAuthProvider>

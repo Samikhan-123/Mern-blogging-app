@@ -4,7 +4,6 @@ import colors from "colors";
 import cors from "cors";
 import dotenv from "dotenv";
 import dbConnection from "./config/dbConnection.js";
-
 // user Routes
 import userRouter from "./routes/userRoutes.js";
 // blog Routes
@@ -37,6 +36,7 @@ app.use(morgan("dev"));
 
 // Making routes
 
+
 app.get('/', (req, res) => {
     res.json('hello backend live')
 })
@@ -48,6 +48,10 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
+});
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.url}`);
+    next();
 });
 
 

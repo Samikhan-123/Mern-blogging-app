@@ -4,7 +4,10 @@ import userModel from "../models/userModel.js";
 import bcrypt from "bcrypt"
 
 import jwt from "jsonwebtoken";
+import { OAuth2Client } from 'google-auth-library';
 
+const GOOGLE_CLIENT_ID = '1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com';
+const client = new OAuth2Client(GOOGLE_CLIENT_ID);
 
 // register users
 export const registerUser = async (req, res) => {
@@ -123,7 +126,42 @@ export const getAllUsers = async (req, res) => {
     }
 
 };
+ 
+// google oauth login verification
 
 
 
+export const authenticateWithGoogle = async (idToken) => {
+    try {
+        const ticket = await client.verifyIdToken({
+            idToken,
+            audience: GOOGLE_CLIENT_ID,
+        });
 
+        const { email, name } = ticket.getPayload();
+
+        let user = await userModel.findOne({ email });
+
+        if (!user) {
+            // If the user doesn't exist, create a new user
+            user = new userModel({ username: name, email });
+            await user.save();
+        }
+
+        const token = jwt.sign({ userId: user._id, name: user.username, email: user.email }, 'yourSecretKey');
+
+        return {
+            success: true,
+            message: "Successfully authenticated with Google",
+            token,
+            user,
+        };
+    } catch (error) {
+        console.error("Google authentication error:", error);
+        return {
+            success: false,
+            message: "Failed to authenticate with Google",
+            error: error.message,
+        };
+    }
+};
