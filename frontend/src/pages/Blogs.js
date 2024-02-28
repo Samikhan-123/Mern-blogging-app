@@ -9,7 +9,7 @@ const Blogs = () => {
 
     const getAllBlogs = async () => {
         try {
-            const response = await axios.get("/api/v1/blog/all-blogs");
+            const response = await axios.get("https://mern-blogging-app.vercel.app/api/v1/blog/all-blogs");
             if (response.data) {
                 setBlogs(response.data.blogs);
             }

@@ -38,7 +38,7 @@ const Register = () => {
         onSubmit: async (values, { setSubmitting }) => {
             // Handle form submission here
             try {
-                const { data } = await axios.post('/api/v1/user/register', {
+                const { data } = await axios.post('https://mern-blogging-app.vercel.app/api/v1/user/register', {
                     username: values.name,
                     email: values.email,
                     password: values.password,
@@ -66,7 +66,7 @@ const Register = () => {
     const handleGoogleLogin = async (credentialResponse) => {
         try {
             const idToken = credentialResponse.credential;
-            const response = await axios.post("/api/v1/user/auth/google", { idToken });
+            const response = await axios.post("https://mern-blogging-app.vercel.app/api/v1/user/auth/google", { idToken });
 
             if (response.data.success) {
                 const { token, user } = response.data;

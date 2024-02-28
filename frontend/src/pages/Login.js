@@ -36,7 +36,7 @@ const Login = () => {
 
         onSubmit: async (values, { setSubmitting }) => {
             try {
-                const response = await axios.post("/api/v1/user/login", {
+                const response = await axios.post("https://mern-blogging-app.vercel.app/api/v1/user/login", {
                     email: values.email,
                     password: values.password
                 });
