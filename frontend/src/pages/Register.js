@@ -4,8 +4,6 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
-import { jwtDecode } from "jwt-decode";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
 const Register = () => {
     const [showPassword, setShowPassword] = React.useState(false);
