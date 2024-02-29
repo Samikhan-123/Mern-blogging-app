@@ -1,43 +1,43 @@
 {
   "builds": [
     {
-      "src": "/all-blogs",
+      "src": "/api/v1/blog/all-blogs",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/one-blog/(*)",
+      "src": "/api/v1/blog/one-blog/(*)",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/create-blogs",
+      "src": "/api/v1/blog/create-blogs",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/update-blog/(*)",
+      "src": "/api/v1/blog/update-blog/(*)",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/delete-blog/(*)",
+      "src": "/api/v1/blog/delete-blog/(*)",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/user-blog/(*)",
+      "src": "/api/v1/blog/user-blog/(*)",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/register",
+      "src": "/api/v1/user/register",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/login",
+      "src": "/api/v1/user/login",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/all-user",
+      "src": "/api/v1/user/all-user",
       "dest": "./backend/index.js"
     },
     {
-      "src": "/",
+      "src": "/api/v1/",
       "dest": "./backend/index.js"
     }
   ]
