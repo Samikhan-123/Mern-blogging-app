@@ -19,7 +19,7 @@ const app = express();
 
 const allowedOrigins = [
     "https://mern-frontend-blond.vercel.app",
-    // Add more URLs as needed
+    "https://mern-blogging-app.vercel.app", // Add the correct origin
     "http://localhost:5173",
 ];
 

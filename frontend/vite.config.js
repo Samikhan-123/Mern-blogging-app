@@ -6,6 +6,8 @@ export default defineConfig({
     proxy: {
       "/api/v1": {
         target: "https://mern-blogging-app.vercel.app",
+        target: "http://localhost:5173",
+
         changeOrigin: true,
         credentials: true
       }
