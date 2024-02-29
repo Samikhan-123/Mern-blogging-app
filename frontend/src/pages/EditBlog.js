@@ -30,7 +30,7 @@ const EditBlog = () => {
         onSubmit: async (values) => {
 
             try {
-                const response = await axios.put(`/api/v1/blog/update-blog/${id}`, {
+                const response = await axios.put(`https://mern-blogging-app.vercel.app/api/v1/blog/update-blog/${id}`, {
                     title: values.title,
                     description: values.description,
                     image: values.image,

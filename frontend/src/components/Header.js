@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../redux/store';
@@ -27,7 +27,7 @@ const Header = () => {
    
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg`}>
+            <nav className={`navbar navbar-expand-lg w-100 bg-light`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
 
@@ -53,7 +53,7 @@ const Header = () => {
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul style={{position:'relative',left:'40%'}} className="navbar-nav">
+                        <ul style={{position:'absolute',left:'40%'}} className="navbar-nav">
                             {isLogin && (
                                 <>
                                     <li className="nav-item">

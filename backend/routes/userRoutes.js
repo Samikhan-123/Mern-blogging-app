@@ -1,6 +1,6 @@
 
 
-import {authenticateWithGoogle,getAllUsers,registerUser,loginUser } from "../controller/userController.js";
+import {getAllUsers,registerUser,loginUser } from "../controller/userController.js";
 import { Router } from "express";
 import passwordAuth from "../middlewares/Admin.js";
 // import verifyToken from "../middlewares/JsonWebAuth.js";

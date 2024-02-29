@@ -84,7 +84,7 @@ const Login = () => {
 
     return (
         <div>
-            <section className="vh-125" style={{ backgroundColor: '#f8f9fa' }}>
+            <section className="vh-125" style={{ backgroundColor: '#9A616D' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col col-xl-10">

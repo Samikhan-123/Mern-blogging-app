@@ -23,9 +23,9 @@ const LandingPage = () => {
                 }}
             >
 
-                <div className=" col-md-10 col-sm-12 col-xs-12 content text-center position-absolute shadow p-2 text-justify">
+                <div className="content text-center position-absolute shadow p-2 w-50 text-justify">
                     {!isLogin && (
-                        <Link to="/login" className="create-blogs btn btn-warning mb-4 text-light bg-dark" data-mdb-ripple-init>CREATE BLOGS</Link>
+                        <Link to="/login" className="btn btn-warning mb-4 text-light bg-dark" data-mdb-ripple-init>CREATE BLOGS</Link>
                     )}
                     <h2>Create Your Blogs</h2>
                     <p>
@@ -51,7 +51,7 @@ const LandingPage = () => {
 
                 }}
             >
-                <div className="col-md-10 col-sm-12 col-xs-12 content text-center position-absolute shadow p-2 text-justify">
+                <div className="content text-center position-absolute shadow p-2 w-50 text-justify">
                     <h2>Discover Exciting Blog Ideas</h2>
                     <p>
                         Explore a world of possibilities and find inspiration for your blogs.
@@ -77,7 +77,7 @@ const LandingPage = () => {
 
                 }}
             >
-                <div className="col-md-10 col-sm-12 col-xs-12 content text-center position-absolute shadow p-2 text-justify">
+                <div className="content text-center position-absolute shadow p-2 w-50 text-justify">
                     <h2>Explore Blogging Adventures</h2>
                     <p>
                         Embark on a journey of blogging adventures. Share your stories,
@@ -85,6 +85,7 @@ const LandingPage = () => {
                     </p>
                 </div>
             </div>
+            {/* <!-- Remove the container if you want to extend the Footer to full width. --> */}
 
             <footer className="bg-dark text-center text-white">
 
