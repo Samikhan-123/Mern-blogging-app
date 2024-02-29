@@ -149,13 +149,7 @@ export const deleteBlog = async (req, res) => {
                 message: 'Blog not found',
             });
         }
-
-        // Check if user and blogs are populated
-        // if (deletedBlog.user && deletedBlog.user.blogs) {
-        //     // Remove the deleted blog from the user's blogs array
-        //     deletedBlog.user.blogs.pull(id);
-        //     await deletedBlog.user.save();
-        // }
+       
 
         return res.status(200).json({
             success: true,

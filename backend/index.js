@@ -17,20 +17,20 @@ const app = express();
 
 // Using middlewares 
 
-// const allowedOrigins = [
-//     "https://mern-frontend-blond.vercel.app",
-//     "https://mern-blogging-app.vercel.app", // Add the correct origin
-//     "http://localhost:5173", 
-// ];
+const allowedOrigins = [
+    "https://mern-frontend-blond.vercel.app",
+    "https://mern-blogging-app.vercel.app", 
+    "http://localhost:5173", 
+];
 
-// const corsOptions = {
-//     origin: allowedOrigins,
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true,
-//     optionsSuccessStatus: 200,
-// };
+const corsOptions = {
+    origin: allowedOrigins,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    optionsSuccessStatus: 200,
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
@@ -49,10 +49,10 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
 });
-app.use((req, res, next) => {
-    console.log(`Incoming request: ${req.method} ${req.url}`);
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log(`Incoming request: ${req.method} ${req.url}`);
+//     next();
+// });
 
 
 const port = process.env.PORT || 8080; 
