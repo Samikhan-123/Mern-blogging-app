@@ -31,7 +31,7 @@ const CreateBlog = () => {
 
     const onSubmit = async (values, { setSubmitting }) => {
         try {
-            const { data } = await axios.post('https://mern-blogging-app.vercel.app/api/v1/blog/create-blog', {
+            const { data } = await axios.post('/api/v1/blog/create-blog', {
                 title: values.title,
                 description: values.description,
                 image: values.image,

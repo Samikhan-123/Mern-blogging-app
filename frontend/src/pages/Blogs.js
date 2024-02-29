@@ -9,7 +9,7 @@ const Blogs = () => {
 
     const getAllBlogs = async () => {
         try {
-            const response = await axios.get("https://mern-blogging-app.vercel.app/api/v1/blog/all-blogs");
+            const response = await axios.get("/api/v1/blog/all-blogs");
             if (response.data) {
                 setBlogs(response.data.blogs);
             }
@@ -26,7 +26,7 @@ const Blogs = () => {
     }, []);
 
     return (
-        <div style={{ backgroundColor: '#e6ecf1' }}>
+        <div>
             <h2 className='text-center p-4 fw-bold'> The Blogs </h2>
             {loading ? (
                 <h4 className='text-center'>Please wait, loading data...</h4>
