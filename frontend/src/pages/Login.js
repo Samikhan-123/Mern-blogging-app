@@ -7,8 +7,7 @@ import { authActions } from '../redux/store';
 import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
+
 
 
 const Login = () => {
@@ -156,20 +155,6 @@ const Login = () => {
                                                     <button type="submit" className="btn btn-primary btn-lg d-flex w-100 justify-content-center mb-2" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>
                                                         Login
                                                     </button>
-                                                    {/* //google authentication for redirect login */}
-                                                    {/* <GoogleOAuthProvider clientId="1084732114493-dd1srhfsog3f11iivd7ckppn9255j3gn.apps.googleusercontent.com">
-                                                        <GoogleLogin
-                                                            onSuccess={credentialResponse => {
-                                                                const decoded = jwtDecode(credentialResponse.credential);
-
-                                                                console.log(decoded);
-                                                            }}
-                                                            onError={() => {
-                                                                console.error('Login Failed');
-                                                            }}
-
-                                                        />
-                                                    </GoogleOAuthProvider> */}
 
                                                 </div>
                                                 <Link to="#!" className="small text-muted">
