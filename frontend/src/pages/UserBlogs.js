@@ -8,7 +8,7 @@ const UserBlog = (props) => {
     const getAllBlogs = async () => {
         try {
             const id = localStorage.getItem('userID');
-            const { data } = await axios.get(`/api/v1/blog/user-blog/${id}`);
+            const { data } = await axios.get(`https://mern-blogging-app.vercel.app/api/v1/blog/user-blog/${id}`);
             if (data && data.userBlogs?.blogs) {
                 setBlogs(data.userBlogs.blogs);
             }
