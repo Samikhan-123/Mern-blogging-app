@@ -62,7 +62,7 @@ const CreateBlog = () => {
     return (
         <form onSubmit={formik.handleSubmit}>
             <div className="container mt-5">
-                <h2 className="text-center mb-4">Create A Post</h2>
+                <h2 className="text-center mb-4">Create A Blog</h2>
                 <div className="mb-3">
                     <label htmlFor="formTitle" className="form-label">
                         Title
