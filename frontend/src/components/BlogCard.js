@@ -31,7 +31,7 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
 
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`https://mern-blogging-app.vercel.app//api/v1/blog/delete-blog/${id}`);
+            const response = await axios.delete(`https://mern-blogging-app.vercel.app/api/v1/blog/delete-blog/${id}`);
             if (response && response?.data) {
                 await fetchBlogs();
 
