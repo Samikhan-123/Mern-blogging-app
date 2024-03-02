@@ -5,11 +5,11 @@
     { "handle": "filesystem" },
     {
       "src": "/api/(.*)",
-      "dest": "/index.js"
+      "dest": "./index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.js"
+      "dest": "./index.js"
     }
   ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
