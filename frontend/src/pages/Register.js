@@ -53,7 +53,7 @@ const Register = () => {
             } catch (error) {
                 console.log(error);
                 // Handle other errors, if needed
-                toast.error(error.response.data.message);
+                toast.error('error while connecting');
             } finally {
                 setSubmitting(false);
             }
