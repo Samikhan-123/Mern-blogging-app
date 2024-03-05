@@ -35,7 +35,7 @@ const Register = () => {
             // Handle form submission here
             // console.log('Form values:', values);
             try {
-                const { data } = await axios.post('https://mern-blogging-app.vercel.app/api/v1/user/register', {
+                const { data } = await axios.post('/api/v1/user/register', {
                     username: values.name,
                     email: values.email,
                     password: values.password,

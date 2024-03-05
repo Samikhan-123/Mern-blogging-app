@@ -8,8 +8,6 @@ import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-
-
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
@@ -35,7 +33,7 @@ const Login = () => {
 
         onSubmit: async (values, { setSubmitting }) => {
             try {
-                const response = await axios.post("https://mern-blogging-app.vercel.app/api/v1/user/login", {
+                const response = await axios.post("/api/v1/user/login", {
                     email: values.email,
                     password: values.password
                 });
@@ -44,7 +42,7 @@ const Login = () => {
                 const userData = response.data.user;
                 const token = response.data.token; // Get the token from the server
 
-                if (userData && userData._id && token) {
+                if (userData && userData?._id && token) {
                     localStorage.setItem("userID", userData._id);
 
                     // console.log('Received Token:', token);
@@ -68,7 +66,7 @@ const Login = () => {
                     toast.error(error.response.data.message);
                 } else if (error.request) {
                     // The request was made but no response was received
-                    console.error("No response received");
+                    console.error("No response received",error);
                     toast.error("No response received");
                 } else {
                     // Something happened in setting up the request that triggered an Error
