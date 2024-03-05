@@ -1,5 +1,6 @@
 .active {
   color: black !important;
+  display: inline-block;
   border-bottom: 1px solid teal;
   font-weight: 700;
 }

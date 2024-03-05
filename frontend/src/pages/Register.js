@@ -62,7 +62,7 @@ const Register = () => {
 
     return (
         <div>
-            <section className="vh-125" style={{ backgroundColor: '#9A616D' }}>
+            <section className="vh-125" style={{ backgroundColor: '#EADFB4' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col col-xl-10">
@@ -174,7 +174,7 @@ const Register = () => {
                                     </div>
                                     <div className="col-md-6 col-lg-5 d-none d-md-block">
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                            src="https://plus.unsplash.com/premium_photo-1678567671234-388cf4fa0224?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                             className="img-fluid"
                                             alt="registration form"
                                         />

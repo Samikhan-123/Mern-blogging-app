@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../redux/store';
@@ -9,7 +9,7 @@ const Header = () => {
     const navigate = useNavigate();
     const isLogin = useSelector((state) => state.isLogin);
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         const confirmLogout = window.confirm("Are you sure you want to logout?");
 
         if (confirmLogout) {
@@ -24,22 +24,21 @@ const Header = () => {
             }
         }
     };
-   
+
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg w-100 bg-light`}>
-                <div className="container-fluid">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="container">
                     <Link className="navbar-brand" to="/">
 
                         <span style={{
-                            color: 'red', textShadow: ' 2px 2px 4px #FF0000'
+                            color: 'red', textShadow: ' 2px 2px 4px #FF0000', marginRight:'4em'
                         }}>
                             BlogFolio
                         </span>
                     </Link>
 
                     <button
-                        style={{ color: 'white' }}
                         className="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
@@ -48,12 +47,12 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span style={{ color: 'white',backgroundColor:'white' }}
+                        <span
                             className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul style={{position:'absolute',left:'40%'}} className="navbar-nav">
+                    <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul className="navbar-nav">
                             {isLogin && (
                                 <>
                                     <li className="nav-item">
@@ -74,7 +73,7 @@ const Header = () => {
                                 </>
                             )}
                         </ul>
-                        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <div className="collapse navbar-collapse justify-content-end " id="navbarNav">
                             <ul className="navbar-nav">
                                 {!isLogin && (
                                     <>
@@ -92,7 +91,7 @@ const Header = () => {
                                 )}
                                 {isLogin && (
                                     <li className="nav-item">
-                                        <button onClick={handleLogout} className="nav-link">
+                                        <button onClick={handleLogout} className="nav-link ">
                                             Logout
                                         </button>
                                     </li>

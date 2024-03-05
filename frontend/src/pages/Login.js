@@ -67,7 +67,7 @@ const Login = () => {
                 } else if (error.request) {
                     // The request was made but no response was received
                     console.error("No response received",error);
-                    toast.error("No response received");
+                    toast.error("Error While Connecting");
                 } else {
                     // Something happened in setting up the request that triggered an Error
                     console.error("Error setting up the request:", error.message);
@@ -82,7 +82,7 @@ const Login = () => {
 
     return (
         <div>
-            <section className="vh-125" style={{ backgroundColor: '#9A616D' }}>
+            <section className="vh-125" style={{ backgroundColor: '#EADFB4' }}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col col-xl-10">
@@ -90,8 +90,8 @@ const Login = () => {
                                 <div className="row g-0">
                                     <div className="col-md-6 col-lg-5 d-none d-md-block">
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                                            alt="login form"
+                                            src="https://plus.unsplash.com/premium_photo-1678567671234-388cf4fa0224?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                            alt="login form image"
                                             className="img-fluid"
                                             style={{ borderRadius: '1rem 0 0 1rem' }}
                                         />
@@ -155,9 +155,9 @@ const Login = () => {
                                                     </button>
 
                                                 </div>
-                                                <Link to="#!" className="small text-muted">
+                                                {/* <Link to="#!" className="small text-muted">
                                                     Forgot password?
-                                                </Link>
+                                                </Link> */}
                                                 <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>
                                                     Don't have an account?
                                                     <Link to="/register" style={{ color: '#393f81' }}>
