@@ -23,24 +23,27 @@ const UserBlog = (props) => {
 
     return (
         <div>
-            <h2 className='text-center p-4 fw-bold'>My Blogs</h2>
-        {blogs && blogs.length > 0 ? (
-            blogs.map((blog) => (
-                <BlogCard
-                    key={blog._id}
-                    id={blog._id}
-                    isUser={true}
-                    username={blog.user?.username}
-                    time={new Date(blog.createdAt).toLocaleString()}
-                    image={blog.image}
-                    title={blog.title}
-                    description={blog.description}
-                />
-            ))
-        ) : (
-            <h4 className='text-center'>Blogs not found, create a blog</h4>
-        )}
-    </div>
+            <h2 className='text-center fw-bold m-5'>My Blogs</h2>
+            <div className="d-flex justify-content-around flex-wrap">
+                {blogs && blogs.length > 0 ? (
+                    blogs.map((blog) => (
+                        <div key={blog._id} className="col-md-5 mb-4 gap-5">
+                            <BlogCard
+                                id={blog._id}
+                                isUser={true}
+                                username={blog.user?.username}
+                                time={new Date(blog.createdAt).toLocaleString()}
+                                image={blog.image}
+                                title={blog.title}
+                                description={blog.description}
+                            />
+                        </div>
+                    ))
+                ) : (
+                    <h4 className='text-center'>Blogs not found, create a blog</h4>
+                )}
+            </div>
+        </div>
     );
 };
 

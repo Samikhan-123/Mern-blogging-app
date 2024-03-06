@@ -17,7 +17,7 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
 
     const fetchBlogs = async () => {
         try {
-            const response = await axios.get("/api/v1/blog/all-blogs");
+            const response = await axios.get("https://mern-blogging-app.vercel.app/api/v1/blog/all-blogs");
             if (response?.data) {
                 // Update the state with the latest data
                 setAllBlogs(response.data);
@@ -51,7 +51,8 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
     }
 
     return (
-        <div className="card d-flex mb-4 col-md-6 col-sm-10" style={{ margin: 'auto', backgroundColor:'#e6fbf1', boxShadow: '5px 5px 10px #ccc' }}>
+            <div className="card" style={{ backgroundColor: '#e6fbf1', boxShadow: '5px 5px 10px #ccc' }}>
+            <div className="">
             {isUser && (
                 <div className="d-flex justify-content-end align-items-center m-2">
                     <button className="btn btn-primary mx-2" onClick={handleEdit}>
@@ -77,7 +78,7 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
 
            
             <Link className="nav-link" to={`/read-blog/${id}`}>
-                <img src={image} className="card-img-top" alt="blog-image" height="350" />
+                <img src={image} className="card-img-top" alt="blog-image" height="250" />
             </Link>
 
             <div className="card-body">
@@ -92,10 +93,10 @@ const BlogCard = ({ isUser, id, username, time, image, title, description }) => 
                         read more
                     </button>
                 </Link>
-               
 
+                </div>
             </div>
-        </div>
+            </div>
     );
 }
 
