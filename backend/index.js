@@ -13,19 +13,22 @@ dotenv.config();
 // DB connection
 dbConnection();
 // Making express server
-const app = express(); 
+const app = express();
 
 // Using middlewares 
 
+const allowedOrigins = [
+    " http://localhost:5173",
+    "https://mern-frontend-blond.vercel.app"
+]
+const corsOptions = {
+    origin: allowedOrigins,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    optionsSuccessStatus: 200,
+};
 
-// const corsOptions = {
-//     origin: allowedOrigins,
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true,
-//     optionsSuccessStatus: 200,
-// };
-
-app.use(cors('*'));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
@@ -43,6 +46,7 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
+    next()
 });
 // app.use((req, res, next) => {
 //     console.log(`Incoming request: ${req.method} ${req.url}`);
@@ -50,7 +54,7 @@ app.use((err, req, res, next) => {
 // });
 
 
-const port = process.env.PORT || 8080; 
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
     console.log(`App is running at http://localhost:${port}`);

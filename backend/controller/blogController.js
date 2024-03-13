@@ -36,7 +36,7 @@ export const getOneBlog = async (req, res) => {
 
     try {
         const id = req.params.id;
-        console.log('Blog ID:', id);
+        // console.log('Blog ID:', id);
 
         if (!id) {
             return res.status(400).json('Invalid blog id');

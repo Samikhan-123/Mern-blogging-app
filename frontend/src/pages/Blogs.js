@@ -41,7 +41,7 @@ const Blogs = () => {
                         <h4 className='text-center'>Blogs not found.</h4>
                     ) : (
                         blogs.map((blog) => (
-                            <div key={blog._id} className="col-md-5 mb-4 ">
+                            <div key={blog._id} className="col-md-5 mb-4">
                                 <BlogCard
                                     isUser={localStorage.getItem("userID") === (blog.user._id || null)}
                                     id={blog._id}

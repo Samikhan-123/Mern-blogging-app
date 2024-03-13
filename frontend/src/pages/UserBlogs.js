@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BlogCard from '../components/BlogCard.js';
 
-const UserBlog = (props) => {
+const UserBlog = () => {
     const [blogs, setBlogs] = useState([]);
 
     const getAllBlogs = async () => {
